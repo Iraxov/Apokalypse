@@ -4,52 +4,56 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Apokalypton – Survival & Schutzausrüstung</title>
-<meta name="description" content="Apokalypton: Survival-Ausrüstung, Messer, Taschenlampen, Notfall-Kits und Selbstschutz in Höhlenstadt.">
+<meta name="description" content="Apokalypton: Survival-Ausrüstung, Messer, Taschenlampen, Notfall-Kits, Proviant und Selbstschutz in Höhlenstadt.">
 <style>
-:root{--bg:#0a0b09;--bg2:#10130d;--card:#161a12;--rust:#a8522a;--acid:#a9d63a;--blood:#b3121d;--text:#e4e6dc;--muted:#8a9180;--line:#2a3022}
+:root{--bg:#0a0b09;--bg2:#10130d;--card:#161a12;--rust:#a8522a;--acid:#a9d63a;--blood:#b3121d;--text:#e4e6dc;--muted:#8a9180;--line:#2a3022;--head:'Arial Black','Franklin Gothic Heavy','Segoe UI Black',Impact,sans-serif;--mono:'Courier New',monospace}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:Georgia,'Times New Roman',serif;line-height:1.6;overflow-x:hidden}
+body{background:var(--bg);color:var(--text);font-family:'Trebuchet MS','Segoe UI',Verdana,sans-serif;line-height:1.6;overflow-x:hidden}
 body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;background:repeating-linear-gradient(0deg,rgba(0,0,0,.2) 0 1px,transparent 1px 3px);opacity:.5}
-h1,h2,h3,.logo,.btn,nav a{font-family:Impact,'Arial Narrow Bold',Haettenschweiler,sans-serif;letter-spacing:.06em;text-transform:uppercase;font-weight:400}
+h1,h2,h3,.logo,.btn,nav a{font-family:var(--head);letter-spacing:.08em;text-transform:uppercase;font-weight:900}
 #ash{position:fixed;inset:0;pointer-events:none;z-index:45;width:100%;height:100%}
-header{position:sticky;top:0;z-index:40;background:rgba(10,11,9,.94);backdrop-filter:blur(6px);border-bottom:2px solid var(--blood);display:flex;justify-content:space-between;align-items:center;padding:12px 18px;gap:12px}
-.logo{font-size:1.5rem;color:var(--acid);text-shadow:0 0 10px rgba(169,214,58,.35);animation:flick 7s infinite}
+header{position:sticky;top:0;z-index:40;background:rgba(10,11,9,.95);backdrop-filter:blur(6px);border-bottom:2px solid var(--blood);display:flex;align-items:center;padding:10px 14px;gap:12px}
+.burger{background:transparent;border:2px solid var(--line);width:44px;height:40px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:6px;cursor:pointer;flex-shrink:0;transition:.2s}
+.burger:hover{border-color:var(--acid)}
+.burger i{display:block;width:22px;height:3px;background:var(--text)}
+.logo{font-size:1.25rem;color:var(--acid);text-shadow:0 0 10px rgba(169,214,58,.4);animation:flick 7s infinite;margin-right:auto;white-space:nowrap}
 .logo span{color:var(--blood)}
 @keyframes flick{0%,92%,100%{opacity:1}93%{opacity:.4}94%{opacity:1}96%{opacity:.55}97%{opacity:1}}
 nav{display:flex;gap:16px}
-nav a{color:var(--text);text-decoration:none;font-size:.95rem}
+nav a{color:var(--text);text-decoration:none;font-size:.8rem}
 nav a:hover{color:var(--acid)}
-.cartbtn{background:transparent;border:2px solid var(--blood);color:var(--text);font-family:Impact,sans-serif;letter-spacing:.06em;text-transform:uppercase;padding:8px 14px;cursor:pointer;font-size:.95rem;transition:.2s}
+.cartbtn{background:transparent;border:2px solid var(--blood);color:var(--text);font-family:var(--head);font-weight:900;letter-spacing:.06em;text-transform:uppercase;padding:8px 12px;cursor:pointer;font-size:.8rem;transition:.2s;flex-shrink:0}
 .cartbtn:hover{background:var(--blood);color:#fff}
-.cartbtn b{background:var(--acid);color:#0a0b09;padding:1px 8px;margin-left:6px;font-weight:400}
-.warn{background:repeating-linear-gradient(-45deg,#1a1a0e 0 14px,#0a0b09 14px 28px);border-bottom:1px solid var(--line);color:var(--rust);font-family:'Courier New',monospace;font-size:.8rem;letter-spacing:.15em;padding:6px 0;overflow:hidden;white-space:nowrap}
+.cartbtn b{background:var(--acid);color:#0a0b09;padding:1px 8px;margin-left:6px}
+.cartbtn.bump{animation:bump .45s}
+@keyframes bump{0%{transform:scale(1)}35%{transform:scale(1.25) rotate(-4deg)}70%{transform:scale(.95)}100%{transform:scale(1)}}
+.warn{background:repeating-linear-gradient(-45deg,#1a1a0e 0 14px,#0a0b09 14px 28px);border-bottom:1px solid var(--line);color:var(--rust);font-family:var(--mono);font-size:.8rem;letter-spacing:.15em;padding:6px 0;overflow:hidden;white-space:nowrap}
 .warn div{display:inline-block;padding-left:100%;animation:run 28s linear infinite}
 @keyframes run{to{transform:translateX(-100%)}}
 .hero{position:relative;min-height:88vh;display:flex;flex-direction:column;justify-content:center;padding:60px 20px;background:radial-gradient(ellipse at 70% 20%,rgba(179,18,29,.3),transparent 55%),radial-gradient(ellipse at 10% 90%,rgba(168,82,42,.18),transparent 50%),var(--bg);border-bottom:1px solid var(--line)}
-.tag{color:var(--blood);font-family:'Courier New',monospace;font-size:.85rem;letter-spacing:.2em;margin-bottom:14px}
-.hero h1{font-size:clamp(3rem,15vw,8rem);line-height:.92}
+.tag{color:var(--blood);font-family:var(--mono);font-size:.85rem;letter-spacing:.2em;margin-bottom:14px}
+.hero h1{font-size:clamp(2.6rem,13vw,7rem);line-height:.95}
 .hero h1 em{font-style:normal;color:var(--acid);text-shadow:0 0 18px rgba(169,214,58,.35)}
-.hero p{max-width:520px;margin:22px 0 30px;color:var(--muted);font-size:1.1rem}
+.hero p{max-width:520px;margin:22px 0 30px;color:var(--muted);font-size:1.05rem}
 .slogan{font-style:italic;color:var(--rust);border-left:3px solid var(--blood);padding-left:12px;margin-bottom:26px;max-width:520px}
 .btns{display:flex;flex-wrap:wrap;gap:12px}
-.btn{display:inline-block;padding:14px 26px;font-size:1.1rem;text-decoration:none;border:2px solid var(--acid);color:#0a0b09;background:var(--acid);transition:.2s;cursor:pointer}
+.btn{display:inline-block;padding:14px 24px;font-size:.95rem;text-decoration:none;border:2px solid var(--acid);color:#0a0b09;background:var(--acid);transition:.2s;cursor:pointer}
 .btn:hover{background:transparent;color:var(--acid)}
 .btn.alt{background:transparent;color:var(--text);border-color:var(--blood)}
 .btn.alt:hover{background:var(--blood);color:#fff}
 section{padding:64px 20px;max-width:1100px;margin:0 auto}
-h2{font-size:clamp(2rem,7vw,3.2rem);margin-bottom:8px}
+h2{font-size:clamp(1.8rem,7vw,3rem);margin-bottom:8px}
 h2::after{content:"";display:block;width:70px;height:4px;background:var(--blood);margin-top:10px}
-h3.cat{font-size:1.6rem;color:var(--rust);margin:38px 0 14px;border-bottom:1px solid var(--line);padding-bottom:6px}
 .sub{color:var(--muted);margin-bottom:24px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
 .card{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--blood);padding:14px;transition:.25s;display:flex;flex-direction:column}
 .card:hover{transform:translateY(-4px);border-top-color:var(--acid);box-shadow:0 10px 30px rgba(0,0,0,.6)}
 .card svg{width:100%;height:120px;background:#0d100a;border:1px solid var(--line);margin-bottom:10px}
-.card h4{font-family:Impact,sans-serif;font-weight:400;letter-spacing:.04em;text-transform:uppercase;font-size:1.05rem;color:var(--text)}
+.card h4{font-family:var(--head);font-weight:900;letter-spacing:.04em;text-transform:uppercase;font-size:.9rem;color:var(--text)}
 .card p{color:var(--muted);font-size:.85rem;flex:1;margin:4px 0 10px}
-.price{color:var(--acid);font-family:'Courier New',monospace;font-size:1.1rem;margin-bottom:8px}
-.add{background:transparent;border:1px solid var(--acid);color:var(--acid);font-family:Impact,sans-serif;letter-spacing:.05em;text-transform:uppercase;padding:8px;cursor:pointer;transition:.2s}
+.price{color:var(--acid);font-family:var(--mono);font-size:1.1rem;margin-bottom:8px}
+.add{background:transparent;border:1px solid var(--acid);color:var(--acid);font-family:var(--head);font-weight:900;font-size:.75rem;letter-spacing:.05em;text-transform:uppercase;padding:9px;cursor:pointer;transition:.2s}
 .add:hover{background:var(--acid);color:#0a0b09}
 </style>
 </head>
@@ -57,6 +61,7 @@ h3.cat{font-size:1.6rem;color:var(--rust);margin:38px 0 14px;border-bottom:1px s
 <canvas id="ash"></canvas>
 
 <header>
+<button class="burger" onclick="openMenu()" aria-label="Menü"><i></i><i></i><i></i></button>
 <div class="logo">APOKALYP<span>TON</span></div>
 <nav>
 <a href="#shop">Shop</a>
@@ -64,7 +69,7 @@ h3.cat{font-size:1.6rem;color:var(--rust);margin:38px 0 14px;border-bottom:1px s
 <a href="#zeiten">Zeiten</a>
 <a href="#kontakt">Kontakt</a>
 </nav>
-<button class="cartbtn" onclick="openCart()">Warenkorb<b id="cnt">0</b></button>
+<button class="cartbtn" id="cartbtn" onclick="openCart()">Warenkorb<b id="cnt">0</b></button>
 </header>
 <div class="warn"><div>⚠ WARNUNG: DIE ZEIT LÄUFT ⚠ WAS DICH NICHT UMBRINGT, MACHT DICH STÄRKER ⚠ NOTFALL-AUSRÜSTUNG AUF LAGER ⚠ HÖHLENSTADT ⚠</div></div>
 
@@ -72,16 +77,33 @@ h3.cat{font-size:1.6rem;color:var(--rust);margin:38px 0 14px;border-bottom:1px s
 <div class="tag">// ÜBERLEBEN IST KEIN ZUFALL</div>
 <h1>Sei bereit.<br><em>Wenn es</em><br>losgeht.</h1>
 <div class="slogan">Was dich nicht umbringt, macht dich stärker.</div>
-<p>Survival-Ausrüstung, Schutz und Notfall-Equipment aus Höhlenstadt. Persönliche Beratung im Laden, keine Massenware.</p>
+<p>Survival-Ausrüstung, Schutz, Proviant und Notfall-Equipment aus Höhlenstadt. Persönliche Beratung im Laden, keine Massenware.</p>
 <div class="btns">
 <a class="btn" href="#shop">Ausrüstung ansehen</a>
 <a class="btn alt" href="#kontakt">Im Laden vorbeikommen</a>
 </div>
 </div>
+<style>
+.search{width:100%;max-width:520px;background:#0d100a;border:2px solid var(--line);color:var(--text);padding:14px 16px;font-family:var(--mono);font-size:1rem;margin-bottom:22px;outline:none;transition:.2s}
+.search:focus{border-color:var(--acid)}
+.folder{margin-bottom:14px;border:1px solid var(--line);background:var(--bg2);border-left:5px solid var(--blood);transition:.25s}
+.folder.open{border-left-color:var(--acid)}
+.fhead{width:100%;display:flex;align-items:center;gap:14px;padding:16px 18px;background:transparent;border:0;color:var(--text);cursor:pointer;text-align:left;font-family:var(--head);font-weight:900;letter-spacing:.07em;text-transform:uppercase;font-size:1.05rem}
+.fhead:hover{color:var(--acid)}
+.fnum{margin-left:auto;font-family:var(--mono);font-weight:400;font-size:.8rem;color:var(--muted);letter-spacing:.05em}
+.arrow{display:inline-block;transition:transform .3s;color:var(--rust)}
+.folder.open .arrow{transform:rotate(90deg);color:var(--acid)}
+.fbody{display:none;padding:6px 18px 20px}
+.folder.open .fbody{display:block}
+#nores{display:none;color:var(--muted);font-family:var(--mono);padding:20px 0}
+</style>
+
 <section id="shop">
 <h2>Shop</h2>
 <p class="sub">Ausrüstung, die im Ernstfall funktioniert. Alle Preise inkl. MwSt.</p>
+<input class="search" id="q" type="search" placeholder="Produkt suchen, z. B. Messer" autocomplete="off">
 <div id="shopbody"></div>
+<div id="nores">Nichts gefunden. Versuch einen anderen Begriff.</div>
 </section>
 
 <script>
@@ -119,47 +141,98 @@ var P=[
 ['Notnagel Multitool 14-in-1','Zange, Säge, Dosenöffner, Schraubendreher.','tool',49.90],
 ['Schädelspalter Beil','Schmiedestahl, Lederhülle, 40 cm Stiel.','axe',44.50],
 ['Funkenschlag Feuerstahl','Zündet auch bei Nässe, 3000 Funken.','fire',12.90],
-['Dornenbiss Klappmesser','Einhand-Öffnung, Gürtelclip.','knife',27.90]]],
+['Dornenbiss Klappmesser','Einhand-Öffnung, Gürtelclip.','knife',27.90],
+['Knochenbrecher Machete','45 cm Klinge, Nylonscheide.','knife',39.90],
+['Gerberzahn Klappsäge','Schneidet Äste bis 10 cm.','tool',19.90],
+['Stahlzunge Wetzstein','Doppelseitig, für scharfe Klingen.','tool',9.90],
+['Greifhaken Survival-Karte','Kreditkartenformat, 11 Werkzeuge.','tool',7.90],
+['Spaltkeil Handaxt Mini','Leicht, 25 cm, für den Rucksack.','axe',32.00]]],
 ['Selbstschutz',[
 ['Schutzschild Alarm 130 dB','Taschenalarm mit Schlüsselring.','alarm',14.90],
 ['Pfeffergel Abwehrspray','Gel-Strahl, 50 ml, Holster.','spray',11.90],
 ['Wachhund Türsicherung','Mobile Türsperre für Zuhause und Hotel.','shield',19.90],
 ['Nachtwächter Signalpfeife','Extra laut, wasserfest.','whistle',6.90],
-['Bollwerk Panikalarm','Zieht man ab, schreit es los.','alarm',18.50]]],
+['Bollwerk Panikalarm','Zieht man ab, schreit es los.','alarm',18.50],
+['Blendfeuer Taktiklicht','Stroboskop-Modus, 900 Lumen.','torch',36.90],
+['Teleskop Verteidigungsstab','Ausziehbar auf 65 cm.','shield',29.90],
+['Fensterwächter Alarmset 4er','Kleben, Öffnen löst Alarm aus.','alarm',16.90],
+['Hartschale Schutzweste Leicht','Schnittschutz, Größe verstellbar.','shield',79.00],
+['Schlagfest Handschutz','Gepolstert, Klett-Verschluss.','glove',24.90]]],
 ['Licht & Strom',[
 ['Lichtjäger Taschenlampe 1200 lm','Aluminium, USB wiederaufladbar.','torch',29.90],
 ['Dunkelwacht Stirnlampe','Rotlicht-Modus, 8 Stunden Laufzeit.','torch',19.90],
 ['Kurbelfunk Notradio','Kurbel, Solar, Powerbank-Funktion.','radio',39.90],
 ['Blackout Powerbank 20.000 mAh','Lädt Handy bis zu 5 mal.','battery',32.90],
-['Glutstab Leuchtstäbe 10er','12 Stunden Licht ohne Strom.','torch',9.90]]],
+['Glutstab Leuchtstäbe 10er','12 Stunden Licht ohne Strom.','torch',9.90],
+['Sonnenfänger Solarpanel 20 W','Faltbar, 2 USB-Anschlüsse.','battery',54.90],
+['Nachtlicht Campinglaterne','LED, 360 Grad, hängbar.','torch',17.90],
+['Dauerbrenner Kerzen 12er','Brenndauer je 8 Stunden.','fire',8.90],
+['Batterievorrat AA 24er','Lange haltbar, 10 Jahre.','battery',15.90],
+['Funkstille Mini-Generator','Handkurbel, lädt Handy und Radio.','radio',44.90]]],
 ['Notfall-Kits',[
 ['Medikit Basis','Pflaster, Verbände, Schere, Rettungsdecke.','kit',24.90],
 ['Medikit Profi','Aderpresse, Druckverband, Brandgel.','kit',59.90],
 ['Fluchtrucksack 72h','Gepackt für drei Tage, 35 Liter.','pack',129.00],
 ['Autokit Straße','Warnweste, Decke, Starthilfe, Werkzeug.','car',44.90],
-['Hauskit Familie','Vorrat und Hygiene für 4 Personen.','kit',89.00]]],
+['Hauskit Familie','Vorrat und Hygiene für 4 Personen.','kit',89.00],
+['Wundnaht Set Steril','Nadel, Faden, Klammern, Handschuhe.','kit',21.90],
+['Rettungsdecke Gold 10er','Hält Körperwärme, Notfall-Reflektor.','kit',11.90],
+['Brandwunden Gel Set','Kühlt sofort, sterile Kompressen.','kit',13.90],
+['Notgepäck Haustier','Futter, Wasser, Decke für Tiere.','pack',34.90],
+['Büro-Notfallbox','Für Schreibtisch oder Spind.','kit',27.90]]],
 ['Kleidung & Schutz',[
 ['Grabräuber Handschuhe','Schnittfest, rutschsicher.','glove',22.90],
 ['Aschesturm Jacke','Wasserdicht, winddicht, viele Taschen.','jacket',89.90],
 ['Trümmerstapfer Stiefel','Stahlkappe, Profilsohle.','boot',99.00],
 ['Staubmaske Pro','Filtert feine Partikel, Ventil.','mask',17.90],
-['Rückzug Rucksack 45L','Robust, wasserabweisend.','pack',74.90]]],
-['Wasser & Feuer',[
+['Rückzug Rucksack 45L','Robust, wasserabweisend.','pack',74.90],
+['Schattenläufer Cargohose','Robust, 8 Taschen, reißfest.','jacket',59.90],
+['Frostbiss Thermounterwäsche','Warm und atmungsaktiv.','jacket',34.90],
+['Nebelgänger Tarnponcho','Regenschutz und Zeltplane in einem.','tent',29.90],
+['Rauchfang Schutzbrille','Beschlagfrei, schlagfest.','mask',16.90],
+['Dornenschreck Wandersocken 3er','Verstärkte Ferse und Spitze.','boot',19.90]]],
+['Proviant & Wasser',[
 ['Quellfinder Wasserfilter','Filtert 99,9 % der Keime, 1000 Liter.','filter',27.90],
 ['Glutherd Taschenkocher','Faltbar, mit Brennstoff-Tabletten.','stove',21.90],
 ['Notration Paket 7 Tage','Haltbar 25 Jahre, 2000 kcal pro Tag.','food',64.90],
 ['Dürrebrecher Trinkflasche','Edelstahl, mit Filterdeckel.','bottle',24.90],
-['Streichholz Sturm 100er','Wind- und wasserfest.','fire',7.90]]]
+['Streichholz Sturm 100er','Wind- und wasserfest.','fire',7.90],
+['Knochentrocken Trockenfleisch','Rind, 200 g, ohne Kühlung haltbar.','food',12.90],
+['Kraftriegel Notkekse 12er','Hochkalorisch, 5 Jahre haltbar.','food',14.90],
+['Giftzwerg Trinkpulver Elektrolyt','Für 20 Liter Wasser.','water',11.90],
+['Dosenbrot Roggen 6er','Haltbar 3 Jahre, 500 g je Dose.','food',22.90],
+['Spähtrupp Notfall-Müsli 1 kg','Nüsse, Trockenfrüchte, Haferflocken.','food',9.90]]]
 ];
-var html='',id=0;
-P.forEach(function(c){
- html+='<h3 class="cat">'+c[0]+'</h3><div class="grid">';
+var html='',idx=0;
+P.forEach(function(c,ci){
+ html+='<div class="folder" data-ci="'+ci+'" id="f'+ci+'"><button class="fhead" onclick="toggleF('+ci+')"><span class="arrow">▶</span>'+c[0]+'<span class="fnum">'+c[1].length+' Artikel</span></button><div class="fbody"><div class="grid">';
  c[1].forEach(function(a){
-  html+='<div class="card"><svg viewBox="0 0 120 120">'+IC[a[2]]+'</svg><h4>'+a[0]+'</h4><p>'+a[1]+'</p><div class="price">'+a[3].toFixed(2).replace('.',',')+' €</div><button class="add" onclick="addItem(\''+a[0].replace(/\'/g,'')+'\','+a[3]+')">In den Warenkorb</button></div>';
+  html+='<div class="card" data-name="'+a[0].toLowerCase()+' '+a[1].toLowerCase()+'"><svg viewBox="0 0 120 120">'+IC[a[2]]+'</svg><h4>'+a[0]+'</h4><p>'+a[1]+'</p><div class="price">'+a[3].toFixed(2).replace('.',',')+' €</div><button class="add" onclick="addItem(this,\''+a[0].replace(/\'/g,'')+'\','+a[3]+')">In den Warenkorb</button></div>';
  });
- html+='</div>';
+ html+='</div></div></div>';
 });
 document.getElementById('shopbody').innerHTML=html;
+function toggleF(i){document.getElementById('f'+i).classList.toggle('open')}
+function openFolder(i){
+ var f=document.getElementById('f'+i);
+ f.classList.add('open');
+ f.scrollIntoView({behavior:'smooth',block:'start'});
+}
+document.getElementById('q').addEventListener('input',function(){
+ var v=this.value.trim().toLowerCase(),total=0;
+ document.querySelectorAll('.folder').forEach(function(f){
+  var n=0;
+  f.querySelectorAll('.card').forEach(function(c){
+   var m=!v||c.getAttribute('data-name').indexOf(v)>-1;
+   c.style.display=m?'':'none';
+   if(m)n++;
+  });
+  if(v){f.style.display=n?'':'none';if(n)f.classList.add('open');else f.classList.remove('open')}
+  else{f.style.display='';f.classList.remove('open')}
+  total+=n;
+ });
+ document.getElementById('nores').style.display=(v&&!total)?'block':'none';
+});
 </script>
 <style>
 .band{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -169,9 +242,9 @@ document.getElementById('shopbody').innerHTML=html;
 .list li::before{content:"☣";color:var(--rust)}
 .scene{background:#0d100a;border:1px solid var(--line);overflow:hidden}
 .scene svg{width:100%;display:block;aspect-ratio:4/3}
-.scene figcaption{padding:8px 12px;color:var(--muted);font-family:'Courier New',monospace;font-size:.8rem}
+.scene figcaption{padding:8px 12px;color:var(--muted);font-family:var(--mono);font-size:.8rem}
 .hours{max-width:420px}
-.hours div{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line);font-family:'Courier New',monospace}
+.hours div{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line);font-family:var(--mono)}
 .hours div span:last-child{color:var(--acid)}
 .contact{text-align:center}
 .contact h2::after{margin:10px auto 0}
@@ -181,8 +254,8 @@ document.getElementById('shopbody').innerHTML=html;
 footer{border-top:2px solid var(--blood);padding:28px 20px;text-align:center;color:var(--muted);font-size:.9rem}
 footer a{color:var(--muted);margin:0 10px;cursor:pointer;text-decoration:underline}
 footer a:hover{color:var(--acid)}
-.fixed-call{position:fixed;right:14px;bottom:14px;z-index:60;background:var(--blood);color:#fff;font-family:Impact,sans-serif;letter-spacing:.06em;text-transform:uppercase;padding:14px 20px;text-decoration:none;box-shadow:0 0 20px rgba(179,18,29,.6)}
-@media(max-width:560px){nav{display:none}}
+.fixed-call{position:fixed;right:14px;bottom:14px;z-index:60;background:var(--blood);color:#fff;font-family:var(--head);font-weight:900;letter-spacing:.06em;text-transform:uppercase;font-size:.85rem;padding:14px 20px;text-decoration:none;box-shadow:0 0 20px rgba(179,18,29,.6)}
+@media(max-width:700px){nav{display:none}}
 </style>
 
 <div class="band"><div class="in">
@@ -201,7 +274,7 @@ footer a:hover{color:var(--acid)}
 <p class="sub">Einblicke in den Laden.</p>
 <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
 
-<figure class="scene"><svg viewBox="0 0 400 300"><rect width="400" height="300" fill="#0a0e12"/><circle cx="320" cy="55" r="28" fill="#d8d8c8" opacity=".85"/><rect x="70" y="110" width="260" height="150" fill="#1b1f17" stroke="#2a3022" stroke-width="3"/><rect x="90" y="80" width="220" height="34" fill="#10130d" stroke="#b3121d" stroke-width="2"/><text x="200" y="104" fill="#a9d63a" font-family="Impact,sans-serif" font-size="22" text-anchor="middle">APOKALYPTON</text><rect x="95" y="135" width="70" height="70" fill="#2b2a14" stroke="#6b7260" stroke-width="3"/><rect x="235" y="135" width="70" height="70" fill="#2b2a14" stroke="#6b7260" stroke-width="3"/><rect x="178" y="150" width="44" height="110" fill="#0d100a" stroke="#a8522a" stroke-width="3"/><path d="M95 135 L165 205 M165 135 L95 205" stroke="#4a4a3a" stroke-width="3"/><rect x="0" y="260" width="400" height="40" fill="#0d0f0b"/><path d="M20 260 L45 210 L55 260 M340 260 L360 225 L378 260" fill="#07090a"/></svg><figcaption>Ladenfront bei Nacht</figcaption></figure>
+<figure class="scene"><svg viewBox="0 0 400 300"><rect width="400" height="300" fill="#0a0e12"/><circle cx="320" cy="55" r="28" fill="#d8d8c8" opacity=".85"/><rect x="70" y="110" width="260" height="150" fill="#1b1f17" stroke="#2a3022" stroke-width="3"/><rect x="90" y="80" width="220" height="34" fill="#10130d" stroke="#b3121d" stroke-width="2"/><text x="200" y="104" fill="#a9d63a" font-family="Arial Black,Impact,sans-serif" font-size="20" text-anchor="middle">APOKALYPTON</text><rect x="95" y="135" width="70" height="70" fill="#2b2a14" stroke="#6b7260" stroke-width="3"/><rect x="235" y="135" width="70" height="70" fill="#2b2a14" stroke="#6b7260" stroke-width="3"/><rect x="178" y="150" width="44" height="110" fill="#0d100a" stroke="#a8522a" stroke-width="3"/><path d="M95 135 L165 205 M165 135 L95 205" stroke="#4a4a3a" stroke-width="3"/><rect x="0" y="260" width="400" height="40" fill="#0d0f0b"/><path d="M20 260 L45 210 L55 260 M340 260 L360 225 L378 260" fill="#07090a"/></svg><figcaption>Ladenfront bei Nacht</figcaption></figure>
 
 <figure class="scene"><svg viewBox="0 0 400 300"><rect width="400" height="300" fill="#12150f"/><rect x="30" y="40" width="340" height="6" fill="#6b7260"/><rect x="30" y="120" width="340" height="6" fill="#6b7260"/><rect x="30" y="200" width="340" height="6" fill="#6b7260"/><rect x="50" y="70" width="36" height="50" fill="#b3121d"/><rect x="100" y="80" width="30" height="40" fill="#3b4230"/><rect x="145" y="65" width="40" height="55" fill="#3a6a8a"/><rect x="210" y="85" width="50" height="35" fill="#a8522a"/><rect x="280" y="72" width="60" height="48" fill="#3b4230"/><rect x="50" y="150" width="60" height="50" fill="#3b4230"/><rect x="130" y="160" width="36" height="40" fill="#b3121d"/><rect x="190" y="145" width="70" height="55" fill="#2a3022"/><rect x="280" y="158" width="50" height="42" fill="#a8522a"/><rect x="0" y="250" width="400" height="50" fill="#0d0f0b"/><rect x="160" y="228" width="80" height="22" fill="#2a3022" stroke="#6b7260" stroke-width="2"/></svg><figcaption>Innenraum mit Regalen</figcaption></figure>
 
@@ -211,7 +284,7 @@ footer a:hover{color:var(--acid)}
 
 <figure class="scene"><svg viewBox="0 0 400 300"><rect width="400" height="300" fill="#12150f"/><path d="M10 40 H390" stroke="#6b7260" stroke-width="5"/><path d="M70 44 L96 52 L120 44 L140 60 L128 120 L112 112 V230 H60 V112 L44 120 L32 60 Z" fill="#3b4230" stroke="#8a9180" stroke-width="2"/><path d="M200 44 L226 52 L250 44 L270 60 L258 120 L242 112 V230 H190 V112 L174 120 L162 60 Z" fill="#2a3022" stroke="#8a9180" stroke-width="2"/><path d="M300 190 H380 V240 H290 Z" fill="#3b4230" stroke="#8a9180" stroke-width="2"/><rect x="0" y="250" width="400" height="50" fill="#0d0f0b"/></svg><figcaption>Kleidung und Schutz</figcaption></figure>
 
-<figure class="scene"><svg viewBox="0 0 400 300"><rect width="400" height="300" fill="#10130d"/><rect x="120" y="90" width="160" height="120" fill="#1d2118" stroke="#b3121d" stroke-width="3"/><text x="200" y="140" fill="#a9d63a" font-family="Impact,sans-serif" font-size="26" text-anchor="middle">NEU IM</text><text x="200" y="176" fill="#a9d63a" font-family="Impact,sans-serif" font-size="26" text-anchor="middle">SORTIMENT</text><path d="M60 250 L90 170 L120 250 Z" fill="#3b4230"/><circle cx="320" cy="215" r="34" fill="#3a6a8a"/><rect x="0" y="250" width="400" height="50" fill="#0d0f0b"/></svg><figcaption>Neuheiten</figcaption></figure>
+<figure class="scene"><svg viewBox="0 0 400 300"><rect width="400" height="300" fill="#10130d"/><rect x="120" y="90" width="160" height="120" fill="#1d2118" stroke="#b3121d" stroke-width="3"/><text x="200" y="140" fill="#a9d63a" font-family="Arial Black,Impact,sans-serif" font-size="22" text-anchor="middle">NEU IM</text><text x="200" y="176" fill="#a9d63a" font-family="Arial Black,Impact,sans-serif" font-size="22" text-anchor="middle">SORTIMENT</text><path d="M60 250 L90 170 L120 250 Z" fill="#3b4230"/><circle cx="320" cy="215" r="34" fill="#3a6a8a"/><rect x="0" y="250" width="400" height="50" fill="#0d0f0b"/></svg><figcaption>Neuheiten</figcaption></figure>
 
 </div>
 </section>
@@ -251,23 +324,64 @@ footer a:hover{color:var(--acid)}
 #ov{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:100;display:none;align-items:center;justify-content:center;padding:14px}
 #ov.on{display:flex}
 .box{background:var(--card);border:2px solid var(--blood);max-width:560px;width:100%;max-height:90vh;overflow:auto;padding:22px}
-.box h3{font-size:1.6rem;color:var(--acid);margin-bottom:12px}
-.box p,.box li{color:var(--muted);font-size:.95rem;margin-bottom:8px}
-.box h4{font-family:Impact,sans-serif;font-weight:400;letter-spacing:.05em;text-transform:uppercase;color:var(--rust);margin:14px 0 4px}
-.row{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid var(--line);font-size:.95rem}
-.row button{background:transparent;border:1px solid var(--blood);color:var(--text);width:26px;height:26px;cursor:pointer}
-.total{display:flex;justify-content:space-between;font-family:'Courier New',monospace;font-size:1.2rem;color:var(--acid);padding:14px 0}
+.box h3{font-size:1.4rem;color:var(--acid);margin-bottom:12px}
+.box p{color:var(--muted);font-size:.95rem;margin-bottom:8px}
+.box h4{font-family:var(--head);font-weight:900;letter-spacing:.05em;text-transform:uppercase;font-size:.85rem;color:var(--rust);margin:14px 0 4px}
+.note{margin-top:12px;color:var(--rust);font-family:var(--mono);font-size:.8rem}
+.close{float:right;background:transparent;border:0;color:var(--muted);font-size:1.8rem;cursor:pointer;line-height:1}
+#menu{position:fixed;top:0;left:0;bottom:0;width:min(320px,85vw);background:#0d100a;border-right:3px solid var(--blood);z-index:110;transform:translateX(-105%);transition:transform .35s;padding:18px;overflow:auto}
+#menu.on{transform:none}
+#menubg{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:105;display:none}
+#menubg.on{display:block}
+#menu .mh{font-family:var(--head);font-weight:900;color:var(--acid);letter-spacing:.08em;margin-bottom:6px;display:flex;justify-content:space-between;align-items:center}
+#menu h5{font-family:var(--mono);font-weight:400;color:var(--blood);letter-spacing:.2em;font-size:.75rem;margin:18px 0 6px}
+#menu a{display:block;padding:11px 4px;border-bottom:1px solid var(--line);color:var(--text);text-decoration:none;font-family:var(--head);font-weight:900;letter-spacing:.06em;text-transform:uppercase;font-size:.85rem;cursor:pointer}
+#menu a:hover{color:var(--acid);padding-left:10px}
+#cartpage{position:fixed;inset:0;background:var(--bg);z-index:120;display:none;overflow:auto}
+#cartpage.on{display:block}
+.cpin{max-width:760px;margin:0 auto;padding:20px 18px 60px}
+.cptop{display:flex;align-items:center;gap:14px;padding-bottom:14px;border-bottom:2px solid var(--blood);margin-bottom:20px}
+.cptop h2{margin:0;font-size:1.6rem}
+.cptop h2::after{display:none}
+.back{background:transparent;border:2px solid var(--acid);color:var(--acid);font-family:var(--head);font-weight:900;font-size:.8rem;letter-spacing:.05em;text-transform:uppercase;padding:10px 14px;cursor:pointer;transition:.2s}
+.back:hover{background:var(--acid);color:#0a0b09}
+.crow{display:grid;grid-template-columns:1fr auto auto;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+.crow .cn{font-family:var(--head);font-weight:900;font-size:.85rem;letter-spacing:.04em;text-transform:uppercase}
+.crow .cp{color:var(--muted);font-family:var(--mono);font-size:.85rem}
+.qty{display:flex;align-items:center;gap:8px;font-family:var(--mono)}
+.qty button{background:transparent;border:1px solid var(--blood);color:var(--text);width:30px;height:30px;cursor:pointer;font-size:1rem}
+.qty button:hover{background:var(--blood)}
+.csum{font-family:var(--mono);color:var(--acid);min-width:80px;text-align:right}
+.total{display:flex;justify-content:space-between;font-family:var(--mono);font-size:1.3rem;color:var(--acid);padding:20px 0}
 .pay{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
-.pay button{padding:12px;border:2px solid var(--line);background:#0d100a;color:var(--text);font-family:Impact,sans-serif;letter-spacing:.05em;text-transform:uppercase;cursor:pointer;transition:.2s}
+.pay button{padding:14px;border:2px solid var(--line);background:#0d100a;color:var(--text);font-family:var(--head);font-weight:900;letter-spacing:.05em;text-transform:uppercase;font-size:.85rem;cursor:pointer;transition:.2s}
 .pay button:hover{border-color:var(--acid);color:var(--acid)}
-.note{margin-top:12px;color:var(--rust);font-family:'Courier New',monospace;font-size:.8rem}
-.close{float:right;background:transparent;border:0;color:var(--muted);font-size:1.6rem;cursor:pointer}
+.fly{position:fixed;z-index:200;pointer-events:none;background:var(--acid);border:2px solid #0a0b09;border-radius:6px;box-shadow:0 0 18px rgba(169,214,58,.6);transition:transform .8s cubic-bezier(.5,-.2,.8,.4),opacity .8s}
 #cookie{position:fixed;left:0;right:0;bottom:0;z-index:90;background:#0d100a;border-top:3px solid var(--blood);padding:16px 18px;display:none;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap}
 #cookie.on{display:flex}
 #cookie p{color:var(--muted);font-size:.9rem;flex:1;min-width:240px}
 #cookie div{display:flex;gap:10px}
-#cookie .btn{padding:10px 18px;font-size:.95rem}
+#cookie .btn{padding:10px 18px;font-size:.85rem}
 </style>
+
+<div id="menubg" onclick="closeMenu()"></div>
+<div id="menu">
+<div class="mh"><span>APOKALYPTON</span><button class="close" onclick="closeMenu()">×</button></div>
+<h5>// KATEGORIEN</h5>
+<script>
+P.forEach(function(c,i){document.write('<a onclick="menuGo('+i+')">'+c[0]+'</a>')});
+</script>
+<h5>// SEITE</h5>
+<a href="#galerie" onclick="closeMenu()">Galerie</a>
+<a href="#zeiten" onclick="closeMenu()">Öffnungszeiten</a>
+<a href="#kontakt" onclick="closeMenu()">Kontakt</a>
+<h5>// RECHTLICHES</h5>
+<a onclick="closeMenu();openLegal('impressum')">Impressum</a>
+<a onclick="closeMenu();openLegal('datenschutz')">Datenschutz</a>
+<a onclick="closeMenu();showBanner()">Cookie-Einstellungen</a>
+</div>
+
+<div id="cartpage"><div class="cpin" id="cpin"></div></div>
 
 <div id="ov"><div class="box" id="boxc"></div></div>
 
@@ -279,48 +393,64 @@ footer a:hover{color:var(--acid)}
 <script>
 var cart=[];
 function euro(n){return n.toFixed(2).replace('.',',')+' €'}
-function addItem(n,p){
+function count(){return cart.reduce(function(s,x){return s+x.q},0)}
+function upd(){document.getElementById('cnt').textContent=count()}
+
+function addItem(btn,n,p){
  var f=cart.find(function(x){return x.n===n});
  if(f){f.q++}else{cart.push({n:n,p:p,q:1})}
- upd();
+ var card=btn.closest('.card'),src=card.querySelector('svg').getBoundingClientRect(),
+     tgt=document.getElementById('cartbtn').getBoundingClientRect();
+ var el=document.createElement('div');
+ el.className='fly';
+ el.style.left=src.left+'px';el.style.top=src.top+'px';
+ el.style.width=src.width+'px';el.style.height=src.height+'px';
+ document.body.appendChild(el);
+ var dx=(tgt.left+tgt.width/2)-(src.left+src.width/2),dy=(tgt.top+tgt.height/2)-(src.top+src.height/2);
+ requestAnimationFrame(function(){requestAnimationFrame(function(){
+  el.style.transform='translate('+dx+'px,'+dy+'px) scale(.05) rotate(200deg)';
+  el.style.opacity='.2';
+ });});
+ setTimeout(function(){
+  el.remove();upd();
+  var cb=document.getElementById('cartbtn');
+  cb.classList.remove('bump');void cb.offsetWidth;cb.classList.add('bump');
+ },800);
 }
-function upd(){
- document.getElementById('cnt').textContent=cart.reduce(function(s,x){return s+x.q},0);
-}
-function chg(i,d){
- cart[i].q+=d;
- if(cart[i].q<=0){cart.splice(i,1)}
- upd();openCart();
-}
-function openCart(){
- var h='<button class="close" onclick="closeBox()">×</button><h3>Warenkorb</h3>';
- if(!cart.length){h+='<p>Dein Warenkorb ist leer.</p>'}
+
+function openCart(){closeMenu();renderCart();document.getElementById('cartpage').classList.add('on');window.scrollTo(0,0)}
+function closeCart(){document.getElementById('cartpage').classList.remove('on')}
+function chg(i,d){cart[i].q+=d;if(cart[i].q<=0){cart.splice(i,1)}upd();renderCart()}
+function renderCart(){
+ var h='<div class="cptop"><button class="back" onclick="closeCart()">← Zurück zum Shop</button><h2>Warenkorb</h2></div>';
+ if(!cart.length){h+='<p class="sub">Dein Warenkorb ist leer.</p>'}
  else{
   var t=0;
   cart.forEach(function(x,i){
    t+=x.p*x.q;
-   h+='<div class="row"><span>'+x.n+'</span><span><button onclick="chg('+i+',-1)">−</button> '+x.q+' <button onclick="chg('+i+',1)">+</button></span><span>'+euro(x.p*x.q)+'</span></div>';
+   h+='<div class="crow"><div><div class="cn">'+x.n+'</div><div class="cp">'+euro(x.p)+' pro Stück</div></div><div class="qty"><button onclick="chg('+i+',-1)">−</button>'+x.q+'<button onclick="chg('+i+',1)">+</button></div><div class="csum">'+euro(x.p*x.q)+'</div></div>';
   });
   h+='<div class="total"><span>Gesamt inkl. MwSt.</span><span>'+euro(t)+'</span></div>';
-  h+='<h4>Bezahlen mit</h4><div class="pay"><button onclick="fakePay(\'PayPal\')">PayPal</button><button onclick="fakePay(\'Google Pay\')">Google Pay</button><button onclick="fakePay(\'Klarna\')">Klarna</button><button onclick="fakePay(\'Karte\')">Karte</button></div>';
-  h+='<div class="note">Testseite: Es wird nichts abgebucht.</div>';
+  h+='<h4 style="font-family:var(--head);font-weight:900;color:var(--rust);letter-spacing:.06em;text-transform:uppercase;font-size:.9rem">Bezahlen mit</h4><div class="pay"><button onclick="fakePay(\'PayPal\')">PayPal</button><button onclick="fakePay(\'Google Pay\')">Google Pay</button><button onclick="fakePay(\'Klarna\')">Klarna</button><button onclick="fakePay(\'Karte\')">Karte</button></div><div class="note">Testseite: Es wird nichts abgebucht.</div>';
  }
- document.getElementById('boxc').innerHTML=h;
- document.getElementById('ov').classList.add('on');
+ document.getElementById('cpin').innerHTML=h;
 }
 function fakePay(m){
- var h='<button class="close" onclick="closeBox()">×</button><h3>Testbestellung</h3><p>Zahlung mit '+m+' ausgewählt. Das ist eine Testseite, es wurde nichts abgebucht und nichts bestellt.</p><button class="btn" onclick="cart=[];upd();closeBox()">Warenkorb leeren</button>';
- document.getElementById('boxc').innerHTML=h;
+ document.getElementById('cpin').innerHTML='<div class="cptop"><button class="back" onclick="closeCart()">← Zurück zum Shop</button><h2>Testbestellung</h2></div><p class="sub">Zahlung mit '+m+' ausgewählt. Das ist eine Testseite, es wurde nichts abgebucht und nichts bestellt.</p><button class="btn" onclick="cart=[];upd();closeCart()">Warenkorb leeren</button>';
 }
+
+function openMenu(){document.getElementById('menu').classList.add('on');document.getElementById('menubg').classList.add('on')}
+function closeMenu(){document.getElementById('menu').classList.remove('on');document.getElementById('menubg').classList.remove('on')}
+function menuGo(i){closeMenu();document.getElementById('q').value='';document.getElementById('q').dispatchEvent(new Event('input'));setTimeout(function(){openFolder(i)},100)}
+
 function closeBox(){document.getElementById('ov').classList.remove('on')}
 document.getElementById('ov').addEventListener('click',function(e){if(e.target===this)closeBox()});
-
 function openLegal(w){
  var h='<button class="close" onclick="closeBox()">×</button>';
  if(w==='impressum'){
   h+='<h3>Impressum</h3><h4>Angaben gemäß § 5 DDG</h4><p>Apokalypton<br>Inhaber: Michael Jackson<br>Teufelsstraße 11<br>66666 Höhlenstadt</p><h4>Kontakt</h4><p>Telefon: +49 369369369<br>E-Mail: Endgegner@gmail.com</p><h4>Umsatzsteuer-ID</h4><p>Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG: DE 333 666 999</p><h4>Streitschlichtung</h4><p>Wir sind nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p><p class="note">Testseite mit Fantasiedaten.</p>';
  }else{
-  h+='<h3>Datenschutzerklärung</h3><h4>Verantwortlicher</h4><p>Michael Jackson, Apokalypton, Teufelsstraße 11, 66666 Höhlenstadt, Endgegner@gmail.com</p><h4>Hosting</h4><p>Diese Seite wird über GitHub Pages bereitgestellt. Dabei verarbeitet der Hosting-Anbieter technisch notwendige Daten wie die IP-Adresse beim Aufruf.</p><h4>Google Maps</h4><p>Eine Karte wird erst nach deiner Zustimmung geladen. Dann wird eine Verbindung zu Google hergestellt und Daten wie deine IP-Adresse können an Google übertragen werden. Ohne Zustimmung findet das nicht statt.</p><h4>Cookie-Auswahl</h4><p>Deine Entscheidung wird lokal in deinem Browser gespeichert. Du kannst sie jederzeit über Cookie-Einstellungen im Footer ändern.</p><h4>Warenkorb</h4><p>Der Warenkorb existiert nur in deinem Browser und wird nicht an uns übertragen.</p><h4>Deine Rechte</h4><p>Du hast das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung, Widerspruch und Datenübertragbarkeit sowie auf Beschwerde bei einer Aufsichtsbehörde.</p><p class="note">Testseite mit Fantasiedaten.</p>';
+  h+='<h3>Datenschutzerklärung</h3><h4>Verantwortlicher</h4><p>Michael Jackson, Apokalypton, Teufelsstraße 11, 66666 Höhlenstadt, Endgegner@gmail.com</p><h4>Hosting</h4><p>Diese Seite wird über GitHub Pages bereitgestellt. Dabei verarbeitet der Hosting-Anbieter technisch notwendige Daten wie die IP-Adresse beim Aufruf.</p><h4>Google Maps</h4><p>Eine Karte wird erst nach deiner Zustimmung geladen. Dann wird eine Verbindung zu Google hergestellt und Daten wie deine IP-Adresse können an Google übertragen werden. Ohne Zustimmung findet das nicht statt.</p><h4>Cookie-Auswahl</h4><p>Deine Entscheidung wird lokal in deinem Browser gespeichert. Du kannst sie jederzeit über Cookie-Einstellungen ändern.</p><h4>Warenkorb</h4><p>Der Warenkorb existiert nur in deinem Browser und wird nicht an uns übertragen.</p><h4>Deine Rechte</h4><p>Du hast das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung, Widerspruch und Datenübertragbarkeit sowie auf Beschwerde bei einer Aufsichtsbehörde.</p><p class="note">Testseite mit Fantasiedaten.</p>';
  }
  document.getElementById('boxc').innerHTML=h;
  document.getElementById('ov').classList.add('on');

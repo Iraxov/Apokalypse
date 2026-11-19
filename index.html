@@ -4,125 +4,224 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Apokalypton – Survival & Schutzausrüstung</title>
-<meta name="description" content="Apokalypton: Survival-Ausrüstung, Messer, Taschenlampen, Notfall-Kits und Selbstschutz. Lokal in [Stadt].">
+<meta name="description" content="Apokalypton: Survival-Ausrüstung, Messer, Taschenlampen, Notfall-Kits und Selbstschutz in Höhlenstadt.">
 <style>
-:root{--bg:#0b0d0a;--bg2:#12150f;--card:#171b13;--acid:#b6ff2e;--blood:#c1121f;--text:#e6e8df;--muted:#8d9482;--line:#2a3022}
+:root{--bg:#0a0b09;--bg2:#10130d;--card:#161a12;--rust:#a8522a;--acid:#a9d63a;--blood:#b3121d;--text:#e4e6dc;--muted:#8a9180;--line:#2a3022}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:Georgia,'Times New Roman',serif;line-height:1.6;overflow-x:hidden}
-body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;background:repeating-linear-gradient(0deg,rgba(0,0,0,.18) 0 1px,transparent 1px 3px);opacity:.5}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;background:repeating-linear-gradient(0deg,rgba(0,0,0,.2) 0 1px,transparent 1px 3px);opacity:.5}
 h1,h2,h3,.logo,.btn,nav a{font-family:Impact,'Arial Narrow Bold',Haettenschweiler,sans-serif;letter-spacing:.06em;text-transform:uppercase;font-weight:400}
-header{position:sticky;top:0;z-index:40;background:rgba(11,13,10,.92);backdrop-filter:blur(6px);border-bottom:2px solid var(--blood);display:flex;justify-content:space-between;align-items:center;padding:12px 18px}
-.logo{font-size:1.5rem;color:var(--acid);text-shadow:0 0 12px rgba(182,255,46,.5)}
+#ash{position:fixed;inset:0;pointer-events:none;z-index:45;width:100%;height:100%}
+header{position:sticky;top:0;z-index:40;background:rgba(10,11,9,.94);backdrop-filter:blur(6px);border-bottom:2px solid var(--blood);display:flex;justify-content:space-between;align-items:center;padding:12px 18px;gap:12px}
+.logo{font-size:1.5rem;color:var(--acid);text-shadow:0 0 10px rgba(169,214,58,.35);animation:flick 7s infinite}
 .logo span{color:var(--blood)}
+@keyframes flick{0%,92%,100%{opacity:1}93%{opacity:.4}94%{opacity:1}96%{opacity:.55}97%{opacity:1}}
 nav{display:flex;gap:16px}
 nav a{color:var(--text);text-decoration:none;font-size:.95rem}
 nav a:hover{color:var(--acid)}
-.hero{position:relative;min-height:88vh;display:flex;flex-direction:column;justify-content:center;padding:60px 20px;background:radial-gradient(ellipse at 70% 20%,rgba(193,18,31,.28),transparent 55%),radial-gradient(ellipse at 10% 90%,rgba(182,255,46,.12),transparent 50%),var(--bg);border-bottom:1px solid var(--line)}
+.cartbtn{background:transparent;border:2px solid var(--blood);color:var(--text);font-family:Impact,sans-serif;letter-spacing:.06em;text-transform:uppercase;padding:8px 14px;cursor:pointer;font-size:.95rem;transition:.2s}
+.cartbtn:hover{background:var(--blood);color:#fff}
+.cartbtn b{background:var(--acid);color:#0a0b09;padding:1px 8px;margin-left:6px;font-weight:400}
+.warn{background:repeating-linear-gradient(-45deg,#1a1a0e 0 14px,#0a0b09 14px 28px);border-bottom:1px solid var(--line);color:var(--rust);font-family:'Courier New',monospace;font-size:.8rem;letter-spacing:.15em;padding:6px 0;overflow:hidden;white-space:nowrap}
+.warn div{display:inline-block;padding-left:100%;animation:run 28s linear infinite}
+@keyframes run{to{transform:translateX(-100%)}}
+.hero{position:relative;min-height:88vh;display:flex;flex-direction:column;justify-content:center;padding:60px 20px;background:radial-gradient(ellipse at 70% 20%,rgba(179,18,29,.3),transparent 55%),radial-gradient(ellipse at 10% 90%,rgba(168,82,42,.18),transparent 50%),var(--bg);border-bottom:1px solid var(--line)}
 .tag{color:var(--blood);font-family:'Courier New',monospace;font-size:.85rem;letter-spacing:.2em;margin-bottom:14px}
-.hero h1{font-size:clamp(3rem,15vw,8rem);line-height:.92;color:var(--text)}
-.hero h1 em{font-style:normal;color:var(--acid);text-shadow:0 0 22px rgba(182,255,46,.55)}
+.hero h1{font-size:clamp(3rem,15vw,8rem);line-height:.92}
+.hero h1 em{font-style:normal;color:var(--acid);text-shadow:0 0 18px rgba(169,214,58,.35)}
 .hero p{max-width:520px;margin:22px 0 30px;color:var(--muted);font-size:1.1rem}
+.slogan{font-style:italic;color:var(--rust);border-left:3px solid var(--blood);padding-left:12px;margin-bottom:26px;max-width:520px}
 .btns{display:flex;flex-wrap:wrap;gap:12px}
-.btn{display:inline-block;padding:14px 26px;font-size:1.1rem;text-decoration:none;border:2px solid var(--acid);color:#0b0d0a;background:var(--acid);transition:.2s}
+.btn{display:inline-block;padding:14px 26px;font-size:1.1rem;text-decoration:none;border:2px solid var(--acid);color:#0a0b09;background:var(--acid);transition:.2s;cursor:pointer}
 .btn:hover{background:transparent;color:var(--acid)}
 .btn.alt{background:transparent;color:var(--text);border-color:var(--blood)}
 .btn.alt:hover{background:var(--blood);color:#fff}
 section{padding:64px 20px;max-width:1100px;margin:0 auto}
-h2{font-size:clamp(2rem,7vw,3.2rem);margin-bottom:8px;color:var(--text)}
+h2{font-size:clamp(2rem,7vw,3.2rem);margin-bottom:8px}
 h2::after{content:"";display:block;width:70px;height:4px;background:var(--blood);margin-top:10px}
-.sub{color:var(--muted);margin-bottom:34px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
-.card{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--blood);padding:22px;transition:.25s}
-.card:hover{transform:translateY(-4px);border-left-color:var(--acid);box-shadow:0 10px 30px rgba(0,0,0,.5)}
-.card h3{font-size:1.4rem;color:var(--acid);margin-bottom:8px}
-.card p{color:var(--muted);font-size:.98rem}
-.ph{aspect-ratio:4/3;background:repeating-linear-gradient(45deg,#14180f 0 12px,#181d12 12px 24px);border:1px dashed var(--line);display:flex;align-items:center;justify-content:center;color:var(--muted);font-family:'Courier New',monospace;font-size:.8rem;text-align:center;padding:10px}
+h3.cat{font-size:1.6rem;color:var(--rust);margin:38px 0 14px;border-bottom:1px solid var(--line);padding-bottom:6px}
+.sub{color:var(--muted);margin-bottom:24px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--blood);padding:14px;transition:.25s;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-4px);border-top-color:var(--acid);box-shadow:0 10px 30px rgba(0,0,0,.6)}
+.card svg{width:100%;height:120px;background:#0d100a;border:1px solid var(--line);margin-bottom:10px}
+.card h4{font-family:Impact,sans-serif;font-weight:400;letter-spacing:.04em;text-transform:uppercase;font-size:1.05rem;color:var(--text)}
+.card p{color:var(--muted);font-size:.85rem;flex:1;margin:4px 0 10px}
+.price{color:var(--acid);font-family:'Courier New',monospace;font-size:1.1rem;margin-bottom:8px}
+.add{background:transparent;border:1px solid var(--acid);color:var(--acid);font-family:Impact,sans-serif;letter-spacing:.05em;text-transform:uppercase;padding:8px;cursor:pointer;transition:.2s}
+.add:hover{background:var(--acid);color:#0a0b09}
+</style>
+</head>
+<body>
+<canvas id="ash"></canvas>
+
+<header>
+<div class="logo">APOKALYP<span>TON</span></div>
+<nav>
+<a href="#shop">Shop</a>
+<a href="#galerie">Galerie</a>
+<a href="#zeiten">Zeiten</a>
+<a href="#kontakt">Kontakt</a>
+</nav>
+<button class="cartbtn" onclick="openCart()">Warenkorb<b id="cnt">0</b></button>
+</header>
+<div class="warn"><div>⚠ WARNUNG: DIE ZEIT LÄUFT ⚠ WAS DICH NICHT UMBRINGT, MACHT DICH STÄRKER ⚠ NOTFALL-AUSRÜSTUNG AUF LAGER ⚠ HÖHLENSTADT ⚠</div></div>
+
+<div class="hero">
+<div class="tag">// ÜBERLEBEN IST KEIN ZUFALL</div>
+<h1>Sei bereit.<br><em>Wenn es</em><br>losgeht.</h1>
+<div class="slogan">Was dich nicht umbringt, macht dich stärker.</div>
+<p>Survival-Ausrüstung, Schutz und Notfall-Equipment aus Höhlenstadt. Persönliche Beratung im Laden, keine Massenware.</p>
+<div class="btns">
+<a class="btn" href="#shop">Ausrüstung ansehen</a>
+<a class="btn alt" href="#kontakt">Im Laden vorbeikommen</a>
+</div>
+</div>
+<section id="shop">
+<h2>Shop</h2>
+<p class="sub">Ausrüstung, die im Ernstfall funktioniert. Alle Preise inkl. MwSt.</p>
+<div id="shopbody"></div>
+</section>
+
+<script>
+var IC={
+ knife:'<path d="M20 85 L95 35 L100 45 L30 92 Z" fill="#8a9180"/><rect x="8" y="82" width="28" height="10" fill="#a8522a" transform="rotate(-32 22 87)"/>',
+ tool:'<rect x="30" y="30" width="60" height="14" fill="#8a9180"/><rect x="30" y="50" width="60" height="14" fill="#6b7260"/><circle cx="35" cy="37" r="6" fill="#a8522a"/>',
+ axe:'<rect x="58" y="15" width="6" height="90" fill="#a8522a"/><path d="M64 20 Q100 30 96 60 Q80 55 64 55 Z" fill="#8a9180"/>',
+ fire:'<path d="M60 20 Q85 55 70 85 Q60 95 50 85 Q35 55 60 20 Z" fill="#b3121d"/><path d="M60 45 Q72 65 62 82 Q52 82 52 68 Z" fill="#a8522a"/>',
+ shield:'<path d="M60 15 L95 28 L92 65 Q85 90 60 105 Q35 90 28 65 L25 28 Z" fill="#3b4230" stroke="#a9d63a" stroke-width="3"/>',
+ spray:'<rect x="45" y="40" width="30" height="60" rx="6" fill="#b3121d"/><rect x="52" y="26" width="16" height="16" fill="#8a9180"/><rect x="68" y="28" width="14" height="6" fill="#8a9180"/>',
+ alarm:'<circle cx="60" cy="60" r="28" fill="#3b4230" stroke="#b3121d" stroke-width="4"/><path d="M60 44 V62 M60 70 V74" stroke="#e4e6dc" stroke-width="5"/>',
+ torch:'<rect x="30" y="50" width="50" height="20" fill="#3b4230"/><rect x="80" y="45" width="16" height="30" fill="#8a9180"/><path d="M96 52 L118 38 L118 82 L96 68 Z" fill="#a9d63a" opacity=".45"/>',
+ radio:'<rect x="25" y="40" width="70" height="48" rx="6" fill="#3b4230"/><circle cx="50" cy="64" r="13" fill="#0d100a" stroke="#8a9180" stroke-width="3"/><path d="M80 40 L95 15" stroke="#8a9180" stroke-width="3"/>',
+ battery:'<rect x="30" y="38" width="58" height="44" rx="4" fill="#3b4230" stroke="#a9d63a" stroke-width="3"/><rect x="88" y="52" width="8" height="16" fill="#a9d63a"/><path d="M62 44 L50 62 H60 L55 76 L72 56 H62 Z" fill="#a9d63a"/>',
+ kit:'<rect x="25" y="35" width="70" height="55" rx="6" fill="#b3121d"/><rect x="54" y="45" width="12" height="35" fill="#e4e6dc"/><rect x="43" y="56" width="34" height="12" fill="#e4e6dc"/>',
+ pack:'<rect x="35" y="25" width="50" height="70" rx="14" fill="#3b4230"/><rect x="42" y="58" width="36" height="22" fill="#2a3022"/><rect x="52" y="15" width="16" height="14" fill="#8a9180"/>',
+ car:'<rect x="15" y="55" width="90" height="22" rx="5" fill="#3b4230"/><path d="M32 55 L44 38 H76 L88 55 Z" fill="#6b7260"/><circle cx="36" cy="80" r="9" fill="#0d100a" stroke="#8a9180" stroke-width="3"/><circle cx="84" cy="80" r="9" fill="#0d100a" stroke="#8a9180" stroke-width="3"/>',
+ water:'<path d="M60 18 Q92 58 80 82 Q60 102 40 82 Q28 58 60 18 Z" fill="#3a6a8a"/><path d="M52 50 Q48 66 54 76" stroke="#e4e6dc" stroke-width="3" fill="none" opacity=".6"/>',
+ food:'<rect x="36" y="35" width="48" height="55" rx="4" fill="#a8522a"/><rect x="36" y="48" width="48" height="26" fill="#e4e6dc"/><rect x="42" y="57" width="36" height="8" fill="#b3121d"/>',
+ glove:'<path d="M38 90 V55 L36 35 H44 L48 52 L50 30 H58 L60 52 L64 32 H72 L72 55 L80 45 L86 50 L76 78 L74 90 Z" fill="#3b4230" stroke="#8a9180" stroke-width="2"/>',
+ jacket:'<path d="M40 25 L60 35 L80 25 L100 40 L90 58 L84 52 V95 H36 V52 L30 58 L20 40 Z" fill="#3b4230" stroke="#8a9180" stroke-width="2"/><path d="M60 35 V95" stroke="#a9d63a" stroke-width="2"/>',
+ boot:'<path d="M40 20 H65 V62 L98 72 V92 H35 Z" fill="#3b4230" stroke="#8a9180" stroke-width="2"/><rect x="35" y="86" width="63" height="7" fill="#0d100a"/>',
+ mask:'<path d="M25 50 Q60 25 95 50 Q95 82 75 85 Q60 78 45 85 Q25 82 25 50 Z" fill="#3b4230" stroke="#8a9180" stroke-width="2"/><circle cx="45" cy="58" r="10" fill="#0d100a" stroke="#a9d63a" stroke-width="2"/><circle cx="75" cy="58" r="10" fill="#0d100a" stroke="#a9d63a" stroke-width="2"/>',
+ filter:'<rect x="45" y="18" width="30" height="80" rx="8" fill="#3a6a8a"/><rect x="45" y="45" width="30" height="25" fill="#2a3022"/><rect x="52" y="10" width="16" height="10" fill="#8a9180"/>',
+ stove:'<rect x="30" y="60" width="60" height="25" fill="#6b7260"/><path d="M50 58 Q60 38 70 58 Z" fill="#a8522a"/><rect x="35" y="50" width="50" height="8" fill="#8a9180"/>',
+ bottle:'<rect x="48" y="22" width="24" height="14" fill="#8a9180"/><rect x="40" y="36" width="40" height="62" rx="8" fill="#3a6a8a"/><rect x="40" y="56" width="40" height="16" fill="#2a3022"/>',
+ rope:'<path d="M30 40 Q60 20 90 40 Q60 55 30 40 M30 60 Q60 40 90 60 Q60 75 30 60 M30 80 Q60 60 90 80 Q60 95 30 80" stroke="#a8522a" stroke-width="7" fill="none"/>',
+ compass:'<circle cx="60" cy="60" r="34" fill="#2a3022" stroke="#8a9180" stroke-width="4"/><path d="M60 30 L68 60 L60 90 L52 60 Z" fill="#b3121d"/>',
+ tent:'<path d="M12 92 L60 22 L108 92 Z" fill="#3b4230" stroke="#8a9180" stroke-width="2"/><path d="M60 22 L60 92 L42 92 Z" fill="#2a3022"/>',
+ whistle:'<rect x="30" y="48" width="55" height="26" rx="12" fill="#b3121d"/><circle cx="90" cy="62" r="13" fill="#6b7260"/><circle cx="90" cy="62" r="5" fill="#0d100a"/>'
+};
+var P=[
+['Messer & Tools',[
+['Rostzahn Outdoor-Messer','Feststehende Klinge, 12 cm, Holzgriff.','knife',34.90],
+['Notnagel Multitool 14-in-1','Zange, Säge, Dosenöffner, Schraubendreher.','tool',49.90],
+['Schädelspalter Beil','Schmiedestahl, Lederhülle, 40 cm Stiel.','axe',44.50],
+['Funkenschlag Feuerstahl','Zündet auch bei Nässe, 3000 Funken.','fire',12.90],
+['Dornenbiss Klappmesser','Einhand-Öffnung, Gürtelclip.','knife',27.90]]],
+['Selbstschutz',[
+['Schutzschild Alarm 130 dB','Taschenalarm mit Schlüsselring.','alarm',14.90],
+['Pfeffergel Abwehrspray','Gel-Strahl, 50 ml, Holster.','spray',11.90],
+['Wachhund Türsicherung','Mobile Türsperre für Zuhause und Hotel.','shield',19.90],
+['Nachtwächter Signalpfeife','Extra laut, wasserfest.','whistle',6.90],
+['Bollwerk Panikalarm','Zieht man ab, schreit es los.','alarm',18.50]]],
+['Licht & Strom',[
+['Lichtjäger Taschenlampe 1200 lm','Aluminium, USB wiederaufladbar.','torch',29.90],
+['Dunkelwacht Stirnlampe','Rotlicht-Modus, 8 Stunden Laufzeit.','torch',19.90],
+['Kurbelfunk Notradio','Kurbel, Solar, Powerbank-Funktion.','radio',39.90],
+['Blackout Powerbank 20.000 mAh','Lädt Handy bis zu 5 mal.','battery',32.90],
+['Glutstab Leuchtstäbe 10er','12 Stunden Licht ohne Strom.','torch',9.90]]],
+['Notfall-Kits',[
+['Medikit Basis','Pflaster, Verbände, Schere, Rettungsdecke.','kit',24.90],
+['Medikit Profi','Aderpresse, Druckverband, Brandgel.','kit',59.90],
+['Fluchtrucksack 72h','Gepackt für drei Tage, 35 Liter.','pack',129.00],
+['Autokit Straße','Warnweste, Decke, Starthilfe, Werkzeug.','car',44.90],
+['Hauskit Familie','Vorrat und Hygiene für 4 Personen.','kit',89.00]]],
+['Kleidung & Schutz',[
+['Grabräuber Handschuhe','Schnittfest, rutschsicher.','glove',22.90],
+['Aschesturm Jacke','Wasserdicht, winddicht, viele Taschen.','jacket',89.90],
+['Trümmerstapfer Stiefel','Stahlkappe, Profilsohle.','boot',99.00],
+['Staubmaske Pro','Filtert feine Partikel, Ventil.','mask',17.90],
+['Rückzug Rucksack 45L','Robust, wasserabweisend.','pack',74.90]]],
+['Wasser & Feuer',[
+['Quellfinder Wasserfilter','Filtert 99,9 % der Keime, 1000 Liter.','filter',27.90],
+['Glutherd Taschenkocher','Faltbar, mit Brennstoff-Tabletten.','stove',21.90],
+['Notration Paket 7 Tage','Haltbar 25 Jahre, 2000 kcal pro Tag.','food',64.90],
+['Dürrebrecher Trinkflasche','Edelstahl, mit Filterdeckel.','bottle',24.90],
+['Streichholz Sturm 100er','Wind- und wasserfest.','fire',7.90]]]
+];
+var html='',id=0;
+P.forEach(function(c){
+ html+='<h3 class="cat">'+c[0]+'</h3><div class="grid">';
+ c[1].forEach(function(a){
+  html+='<div class="card"><svg viewBox="0 0 120 120">'+IC[a[2]]+'</svg><h4>'+a[0]+'</h4><p>'+a[1]+'</p><div class="price">'+a[3].toFixed(2).replace('.',',')+' €</div><button class="add" onclick="addItem(\''+a[0].replace(/\'/g,'')+'\','+a[3]+')">In den Warenkorb</button></div>';
+ });
+ html+='</div>';
+});
+document.getElementById('shopbody').innerHTML=html;
+</script>
+<style>
 .band{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .band .in{max-width:1100px;margin:0 auto;padding:64px 20px}
 .list{list-style:none}
 .list li{padding:12px 0;border-bottom:1px solid var(--line);display:flex;gap:12px}
-.list li::before{content:"☣";color:var(--acid)}
+.list li::before{content:"☣";color:var(--rust)}
+.scene{background:#0d100a;border:1px solid var(--line);overflow:hidden}
+.scene svg{width:100%;display:block;aspect-ratio:4/3}
+.scene figcaption{padding:8px 12px;color:var(--muted);font-family:'Courier New',monospace;font-size:.8rem}
 .hours{max-width:420px}
 .hours div{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line);font-family:'Courier New',monospace}
 .hours div span:last-child{color:var(--acid)}
 .contact{text-align:center}
 .contact h2::after{margin:10px auto 0}
 .contact p{color:var(--muted);margin:10px 0 24px}
+#mapbox{max-width:700px;margin:26px auto 0;aspect-ratio:16/9;background:repeating-linear-gradient(45deg,#14180f 0 12px,#181d12 12px 24px);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;color:var(--muted);padding:14px}
+#mapbox iframe{width:100%;height:100%;border:0}
 footer{border-top:2px solid var(--blood);padding:28px 20px;text-align:center;color:var(--muted);font-size:.9rem}
-footer a{color:var(--muted);margin:0 10px}
+footer a{color:var(--muted);margin:0 10px;cursor:pointer;text-decoration:underline}
 footer a:hover{color:var(--acid)}
-.fixed-call{position:fixed;right:14px;bottom:14px;z-index:60;background:var(--blood);color:#fff;font-family:Impact,sans-serif;letter-spacing:.06em;text-transform:uppercase;padding:14px 20px;text-decoration:none;box-shadow:0 0 20px rgba(193,18,31,.6)}
+.fixed-call{position:fixed;right:14px;bottom:14px;z-index:60;background:var(--blood);color:#fff;font-family:Impact,sans-serif;letter-spacing:.06em;text-transform:uppercase;padding:14px 20px;text-decoration:none;box-shadow:0 0 20px rgba(179,18,29,.6)}
 @media(max-width:560px){nav{display:none}}
 </style>
-</head>
-<body>
 
-<header>
-<div class="logo">APOKALYP<span>TON</span></div>
-<nav>
-<a href="#sortiment">Sortiment</a>
-<a href="#galerie">Galerie</a>
-<a href="#zeiten">Zeiten</a>
-<a href="#kontakt">Kontakt</a>
-</nav>
-</header>
-
-<div class="hero">
-<div class="tag">// ÜBERLEBEN IST KEIN ZUFALL</div>
-<h1>Sei bereit.<br><em>Wenn es</em><br>losgeht.</h1>
-<p>Survival-Ausrüstung, Schutz und Notfall-Equipment aus [Stadt]. Persönliche Beratung im Laden, keine Massenware.</p>
-<div class="btns">
-<a class="btn" href="#sortiment">Ausrüstung ansehen</a>
-<a class="btn alt" href="#kontakt">Im Laden vorbeikommen</a>
-</div>
-</div>
-
-<section id="sortiment">
-<h2>Sortiment</h2>
-<p class="sub">Ausrüstung, die im Ernstfall funktioniert.</p>
-<div class="grid">
-<div class="card"><h3>Messer & Tools</h3><p>Outdoor-Messer, Multitools, Beile und Feuerstahl. Robust und griffbereit.</p></div>
-<div class="card"><h3>Selbstschutz</h3><p>Pfefferspray, Alarmgeräte und Schutzausrüstung für den Alltag. Ich berate dich zu dem, was erlaubt ist.</p></div>
-<div class="card"><h3>Licht & Strom</h3><p>Taschenlampen, Stirnlampen, Kurbelradios und Powerbanks für den Blackout.</p></div>
-<div class="card"><h3>Notfall-Kits</h3><p>Fertige Sets für Haus, Rucksack und Auto. Wasser, Erste Hilfe, Notvorrat.</p></div>
-<div class="card"><h3>Kleidung & Schutz</h3><p>Taktische Handschuhe, Jacken, Rucksäcke und Stiefel für jedes Wetter.</p></div>
-<div class="card"><h3>Wasser & Feuer</h3><p>Wasserfilter, Kocher, Notfallnahrung und alles zum Feuermachen.</p></div>
-</div>
-</section>
-
-<div class="band">
-<div class="in">
+<div class="band"><div class="in">
 <h2>Warum Apokalypton</h2>
 <p class="sub">Kein Anonym-Shop. Du sprichst mit Menschen, die das Zeug selbst nutzen.</p>
 <ul class="list">
 <li>Persönliche Beratung statt Katalog-Wust</li>
 <li>Ausrüstung, die wir selbst testen</li>
 <li>Faire Preise, keine Mondpreise</li>
-<li>Lokal in [Stadt], sofort mitnehmen</li>
+<li>Lokal in Höhlenstadt, sofort mitnehmen</li>
 </ul>
-</div>
-</div>
+</div></div>
 
 <section id="galerie">
 <h2>Galerie</h2>
-<p class="sub">Einblicke in den Laden. Platzhalter durch eigene Fotos ersetzen.</p>
-<div class="grid">
-<div class="ph">[Foto 1: Ladenfront]</div>
-<div class="ph">[Foto 2: Messer-Wand]</div>
-<div class="ph">[Foto 3: Notfall-Kits]</div>
-<div class="ph">[Foto 4: Kleidung]</div>
-<div class="ph">[Foto 5: Beratung]</div>
-<div class="ph">[Foto 6: Neuheiten]</div>
+<p class="sub">Einblicke in den Laden.</p>
+<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
+
+<figure class="scene"><svg viewBox="0 0 400 300"><rect width="400" height="300" fill="#0a0e12"/><circle cx="320" cy="55" r="28" fill="#d8d8c8" opacity=".85"/><rect x="70" y="110" width="260" height="150" fill="#1b1f17" stroke="#2a3022" stroke-width="3"/><rect x="90" y="80" width="220" height="34" fill="#10130d" stroke="#b3121d" stroke-width="2"/><text x="200" y="104" fill="#a9d63a" font-family="Impact,sans-serif" font-size="22" text-anchor="middle">APOKALYPTON</text><rect x="95" y="135" width="70" height="70" fill="#2b2a14" stroke="#6b7260" stroke-width="3"/><rect x="235" y="135" width="70" height="70" fill="#2b2a14" stroke="#6b7260" stroke-width="3"/><rect x="178" y="150" width="44" height="110" fill="#0d100a" stroke="#a8522a" stroke-width="3"/><path d="M95 135 L165 205 M165 135 L95 205" stroke="#4a4a3a" stroke-width="3"/><rect x="0" y="260" width="400" height="40" fill="#0d0f0b"/><path d="M20 260 L45 210 L55 260 M340 260 L360 225 L378 260" fill="#07090a"/></svg><figcaption>Ladenfront bei Nacht</figcaption></figure>
+
+<figure class="scene"><svg viewBox="0 0 400 300"><rect width="400" height="300" fill="#12150f"/><rect x="30" y="40" width="340" height="6" fill="#6b7260"/><rect x="30" y="120" width="340" height="6" fill="#6b7260"/><rect x="30" y="200" width="340" height="6" fill="#6b7260"/><rect x="50" y="70" width="36" height="50" fill="#b3121d"/><rect x="100" y="80" width="30" height="40" fill="#3b4230"/><rect x="145" y="65" width="40" height="55" fill="#3a6a8a"/><rect x="210" y="85" width="50" height="35" fill="#a8522a"/><rect x="280" y="72" width="60" height="48" fill="#3b4230"/><rect x="50" y="150" width="60" height="50" fill="#3b4230"/><rect x="130" y="160" width="36" height="40" fill="#b3121d"/><rect x="190" y="145" width="70" height="55" fill="#2a3022"/><rect x="280" y="158" width="50" height="42" fill="#a8522a"/><rect x="0" y="250" width="400" height="50" fill="#0d0f0b"/><rect x="160" y="228" width="80" height="22" fill="#2a3022" stroke="#6b7260" stroke-width="2"/></svg><figcaption>Innenraum mit Regalen</figcaption></figure>
+
+<figure class="scene"><svg viewBox="0 0 400 300"><rect width="400" height="300" fill="#14110d"/><rect x="20" y="20" width="360" height="260" fill="#1d1812" stroke="#2a3022" stroke-width="3"/><g fill="#8a9180"><path d="M50 60 L130 42 L134 50 L58 74 Z"/><path d="M50 110 L140 90 L144 98 L58 124 Z"/><path d="M50 160 L120 144 L124 152 L58 174 Z"/><path d="M50 210 L150 190 L154 198 L58 224 Z"/></g><g fill="#a8522a"><rect x="40" y="64" width="20" height="10"/><rect x="40" y="114" width="20" height="10"/><rect x="40" y="164" width="20" height="10"/><rect x="40" y="214" width="20" height="10"/></g><path d="M230 60 L310 40 L330 70 L250 100 Z" fill="#6b7260"/><rect x="240" y="130" width="110" height="90" fill="#2a3022" stroke="#b3121d" stroke-width="2"/></svg><figcaption>Die Messer-Wand</figcaption></figure>
+
+<figure class="scene"><svg viewBox="0 0 400 300"><rect width="400" height="300" fill="#10130d"/><rect x="40" y="150" width="100" height="90" rx="6" fill="#b3121d"/><rect x="82" y="165" width="16" height="60" fill="#e4e6dc"/><rect x="62" y="187" width="56" height="16" fill="#e4e6dc"/><rect x="160" y="110" width="90" height="130" rx="22" fill="#3b4230"/><rect x="175" y="170" width="60" height="40" fill="#2a3022"/><rect x="270" y="170" width="90" height="70" rx="6" fill="#a8522a"/><rect x="285" y="185" width="60" height="14" fill="#e4e6dc"/><rect x="0" y="240" width="400" height="60" fill="#0d0f0b"/></svg><figcaption>Notfall-Kits</figcaption></figure>
+
+<figure class="scene"><svg viewBox="0 0 400 300"><rect width="400" height="300" fill="#12150f"/><path d="M10 40 H390" stroke="#6b7260" stroke-width="5"/><path d="M70 44 L96 52 L120 44 L140 60 L128 120 L112 112 V230 H60 V112 L44 120 L32 60 Z" fill="#3b4230" stroke="#8a9180" stroke-width="2"/><path d="M200 44 L226 52 L250 44 L270 60 L258 120 L242 112 V230 H190 V112 L174 120 L162 60 Z" fill="#2a3022" stroke="#8a9180" stroke-width="2"/><path d="M300 190 H380 V240 H290 Z" fill="#3b4230" stroke="#8a9180" stroke-width="2"/><rect x="0" y="250" width="400" height="50" fill="#0d0f0b"/></svg><figcaption>Kleidung und Schutz</figcaption></figure>
+
+<figure class="scene"><svg viewBox="0 0 400 300"><rect width="400" height="300" fill="#10130d"/><rect x="120" y="90" width="160" height="120" fill="#1d2118" stroke="#b3121d" stroke-width="3"/><text x="200" y="140" fill="#a9d63a" font-family="Impact,sans-serif" font-size="26" text-anchor="middle">NEU IM</text><text x="200" y="176" fill="#a9d63a" font-family="Impact,sans-serif" font-size="26" text-anchor="middle">SORTIMENT</text><path d="M60 250 L90 170 L120 250 Z" fill="#3b4230"/><circle cx="320" cy="215" r="34" fill="#3a6a8a"/><rect x="0" y="250" width="400" height="50" fill="#0d0f0b"/></svg><figcaption>Neuheiten</figcaption></figure>
+
 </div>
 </section>
 
 <section id="zeiten">
 <h2>Öffnungszeiten</h2>
-<p class="sub">Anpassen auf die echten Zeiten.</p>
+<p class="sub">Samstag bis in den Abend.</p>
 <div class="hours">
-<div><span>Montag – Freitag</span><span>[10:00 – 18:30]</span></div>
-<div><span>Samstag</span><span>[10:00 – 16:00]</span></div>
+<div><span>Montag – Freitag</span><span>10:00 – 18:30</span></div>
+<div><span>Samstag</span><span>10:00 – 22:00</span></div>
 <div><span>Sonntag</span><span>Geschlossen</span></div>
 </div>
 </section>
@@ -130,20 +229,138 @@ footer a:hover{color:var(--acid)}
 <div class="band">
 <section id="kontakt" class="contact">
 <h2>Finde uns</h2>
-<p>[Straße Hausnummer], [PLZ] [Stadt]<br>Telefon: [Telefonnummer] · E-Mail: [E-Mail]</p>
+<p>Teufelsstraße 11, 66666 Höhlenstadt<br>Telefon: +49 369369369 · E-Mail: Endgegner@gmail.com</p>
 <div class="btns" style="justify-content:center">
-<a class="btn" href="tel:[+49Telefonnummer]">Jetzt anrufen</a>
-<a class="btn alt" href="https://www.google.com/maps/search/?api=1&query=[Straße+Hausnummer+PLZ+Stadt]" target="_blank" rel="noopener">Route in Google Maps</a>
+<a class="btn" href="tel:+49369369369">Jetzt anrufen</a>
+<a class="btn alt" href="https://www.google.com/maps/search/?api=1&query=Teufelsstra%C3%9Fe+11+66666+H%C3%B6hlenstadt" target="_blank" rel="noopener">Route in Google Maps</a>
+</div>
+<div id="mapbox">
+<span>Die Karte wird erst nach deiner Zustimmung geladen.</span>
+<button class="btn" onclick="loadMap()">Karte laden</button>
 </div>
 </section>
 </div>
 
 <footer>
-<p>© 2026 Apokalypton</p>
-<p style="margin-top:8px"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></p>
+<p>© 2026 Apokalypton · Inhaber: Michael Jackson</p>
+<p style="margin-top:8px"><a onclick="openLegal('impressum')">Impressum</a><a onclick="openLegal('datenschutz')">Datenschutz</a><a onclick="showBanner()">Cookie-Einstellungen</a></p>
 </footer>
 
-<a class="fixed-call" href="tel:[+49Telefonnummer]">Anrufen</a>
+<a class="fixed-call" href="tel:+49369369369">Anrufen</a>
+<style>
+#ov{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:100;display:none;align-items:center;justify-content:center;padding:14px}
+#ov.on{display:flex}
+.box{background:var(--card);border:2px solid var(--blood);max-width:560px;width:100%;max-height:90vh;overflow:auto;padding:22px}
+.box h3{font-size:1.6rem;color:var(--acid);margin-bottom:12px}
+.box p,.box li{color:var(--muted);font-size:.95rem;margin-bottom:8px}
+.box h4{font-family:Impact,sans-serif;font-weight:400;letter-spacing:.05em;text-transform:uppercase;color:var(--rust);margin:14px 0 4px}
+.row{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid var(--line);font-size:.95rem}
+.row button{background:transparent;border:1px solid var(--blood);color:var(--text);width:26px;height:26px;cursor:pointer}
+.total{display:flex;justify-content:space-between;font-family:'Courier New',monospace;font-size:1.2rem;color:var(--acid);padding:14px 0}
+.pay{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.pay button{padding:12px;border:2px solid var(--line);background:#0d100a;color:var(--text);font-family:Impact,sans-serif;letter-spacing:.05em;text-transform:uppercase;cursor:pointer;transition:.2s}
+.pay button:hover{border-color:var(--acid);color:var(--acid)}
+.note{margin-top:12px;color:var(--rust);font-family:'Courier New',monospace;font-size:.8rem}
+.close{float:right;background:transparent;border:0;color:var(--muted);font-size:1.6rem;cursor:pointer}
+#cookie{position:fixed;left:0;right:0;bottom:0;z-index:90;background:#0d100a;border-top:3px solid var(--blood);padding:16px 18px;display:none;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+#cookie.on{display:flex}
+#cookie p{color:var(--muted);font-size:.9rem;flex:1;min-width:240px}
+#cookie div{display:flex;gap:10px}
+#cookie .btn{padding:10px 18px;font-size:.95rem}
+</style>
+
+<div id="ov"><div class="box" id="boxc"></div></div>
+
+<div id="cookie">
+<p>Wir nutzen eine Google-Karte, die nur nach deiner Zustimmung geladen wird. Dabei können Daten an Google übertragen werden. Mehr dazu in der Datenschutzerklärung.</p>
+<div><button class="btn alt" onclick="setConsent('no')">Ablehnen</button><button class="btn" onclick="setConsent('yes')">Akzeptieren</button></div>
+</div>
+
+<script>
+var cart=[];
+function euro(n){return n.toFixed(2).replace('.',',')+' €'}
+function addItem(n,p){
+ var f=cart.find(function(x){return x.n===n});
+ if(f){f.q++}else{cart.push({n:n,p:p,q:1})}
+ upd();
+}
+function upd(){
+ document.getElementById('cnt').textContent=cart.reduce(function(s,x){return s+x.q},0);
+}
+function chg(i,d){
+ cart[i].q+=d;
+ if(cart[i].q<=0){cart.splice(i,1)}
+ upd();openCart();
+}
+function openCart(){
+ var h='<button class="close" onclick="closeBox()">×</button><h3>Warenkorb</h3>';
+ if(!cart.length){h+='<p>Dein Warenkorb ist leer.</p>'}
+ else{
+  var t=0;
+  cart.forEach(function(x,i){
+   t+=x.p*x.q;
+   h+='<div class="row"><span>'+x.n+'</span><span><button onclick="chg('+i+',-1)">−</button> '+x.q+' <button onclick="chg('+i+',1)">+</button></span><span>'+euro(x.p*x.q)+'</span></div>';
+  });
+  h+='<div class="total"><span>Gesamt inkl. MwSt.</span><span>'+euro(t)+'</span></div>';
+  h+='<h4>Bezahlen mit</h4><div class="pay"><button onclick="fakePay(\'PayPal\')">PayPal</button><button onclick="fakePay(\'Google Pay\')">Google Pay</button><button onclick="fakePay(\'Klarna\')">Klarna</button><button onclick="fakePay(\'Karte\')">Karte</button></div>';
+  h+='<div class="note">Testseite: Es wird nichts abgebucht.</div>';
+ }
+ document.getElementById('boxc').innerHTML=h;
+ document.getElementById('ov').classList.add('on');
+}
+function fakePay(m){
+ var h='<button class="close" onclick="closeBox()">×</button><h3>Testbestellung</h3><p>Zahlung mit '+m+' ausgewählt. Das ist eine Testseite, es wurde nichts abgebucht und nichts bestellt.</p><button class="btn" onclick="cart=[];upd();closeBox()">Warenkorb leeren</button>';
+ document.getElementById('boxc').innerHTML=h;
+}
+function closeBox(){document.getElementById('ov').classList.remove('on')}
+document.getElementById('ov').addEventListener('click',function(e){if(e.target===this)closeBox()});
+
+function openLegal(w){
+ var h='<button class="close" onclick="closeBox()">×</button>';
+ if(w==='impressum'){
+  h+='<h3>Impressum</h3><h4>Angaben gemäß § 5 DDG</h4><p>Apokalypton<br>Inhaber: Michael Jackson<br>Teufelsstraße 11<br>66666 Höhlenstadt</p><h4>Kontakt</h4><p>Telefon: +49 369369369<br>E-Mail: Endgegner@gmail.com</p><h4>Umsatzsteuer-ID</h4><p>Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG: DE 333 666 999</p><h4>Streitschlichtung</h4><p>Wir sind nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p><p class="note">Testseite mit Fantasiedaten.</p>';
+ }else{
+  h+='<h3>Datenschutzerklärung</h3><h4>Verantwortlicher</h4><p>Michael Jackson, Apokalypton, Teufelsstraße 11, 66666 Höhlenstadt, Endgegner@gmail.com</p><h4>Hosting</h4><p>Diese Seite wird über GitHub Pages bereitgestellt. Dabei verarbeitet der Hosting-Anbieter technisch notwendige Daten wie die IP-Adresse beim Aufruf.</p><h4>Google Maps</h4><p>Eine Karte wird erst nach deiner Zustimmung geladen. Dann wird eine Verbindung zu Google hergestellt und Daten wie deine IP-Adresse können an Google übertragen werden. Ohne Zustimmung findet das nicht statt.</p><h4>Cookie-Auswahl</h4><p>Deine Entscheidung wird lokal in deinem Browser gespeichert. Du kannst sie jederzeit über Cookie-Einstellungen im Footer ändern.</p><h4>Warenkorb</h4><p>Der Warenkorb existiert nur in deinem Browser und wird nicht an uns übertragen.</p><h4>Deine Rechte</h4><p>Du hast das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung, Widerspruch und Datenübertragbarkeit sowie auf Beschwerde bei einer Aufsichtsbehörde.</p><p class="note">Testseite mit Fantasiedaten.</p>';
+ }
+ document.getElementById('boxc').innerHTML=h;
+ document.getElementById('ov').classList.add('on');
+}
+
+function showBanner(){document.getElementById('cookie').classList.add('on')}
+function setConsent(v){
+ try{localStorage.setItem('apo_consent',v)}catch(e){}
+ document.getElementById('cookie').classList.remove('on');
+ if(v==='yes'){loadMap()}
+}
+function loadMap(){
+ document.getElementById('mapbox').innerHTML='<iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Teufelsstra%C3%9Fe+11+66666+H%C3%B6hlenstadt&output=embed"></iframe>';
+ try{localStorage.setItem('apo_consent','yes')}catch(e){}
+}
+(function(){
+ var c=null;
+ try{c=localStorage.getItem('apo_consent')}catch(e){}
+ if(c==='yes'){loadMap()}else if(c!=='no'){showBanner()}
+})();
+
+(function(){
+ var cv=document.getElementById('ash'),x=cv.getContext('2d'),W,H,ps=[];
+ function rs(){W=cv.width=innerWidth;H=cv.height=innerHeight}
+ rs();addEventListener('resize',rs);
+ for(var i=0;i<60;i++)ps.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*2+.5,s:Math.random()*.6+.2,d:Math.random()*1.2-.4});
+ function f(){
+  x.clearRect(0,0,W,H);
+  x.fillStyle='rgba(170,170,150,.35)';
+  ps.forEach(function(p){
+   p.y+=p.s;p.x+=p.d*.4;
+   if(p.y>H){p.y=-4;p.x=Math.random()*W}
+   if(p.x>W)p.x=0;if(p.x<0)p.x=W;
+   x.beginPath();x.arc(p.x,p.y,p.r,0,6.28);x.fill();
+  });
+  requestAnimationFrame(f);
+ }
+ f();
+})();
+</script>
 
 </body>
 </html>
